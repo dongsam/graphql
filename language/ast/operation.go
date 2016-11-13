@@ -4,15 +4,16 @@ import (
 	"github.com/riverleo/graphql/language/kinds"
 )
 
+// OperationNode ...
 type OperationNode struct {
-	Loc                 Location
-	Kind                string
-	Name                NameNode
-	Operation           string
-	VariableDefinitions []VariableDefinitionNode
-	SelectionSet        SelectionSetNode
+	Node
+	Name         NameNode
+	Operation    string "mutation|query"
+	Variables    []VariableNode
+	SelectionSet SelectionSetNode
 }
 
+// NewOperation ...
 func NewOperation(n *OperationNode) *OperationNode {
 	if n == nil {
 		n = &OperationNode{}
@@ -23,28 +24,49 @@ func NewOperation(n *OperationNode) *OperationNode {
 	return n
 }
 
+// SelectionSetNode ...
 type SelectionSetNode struct {
-	Loc        Location
-	Kind       string
+	Node
 	Selections []SelectionNode
 }
 
+func NewSelectionSet(n *SelectionSetNode) *SelectionSetNode {
+	if n == nil {
+		n = &SelectionSetNode{}
+	}
+
+	n.Kind = kinds.SelectionSet
+
+	return n
+}
+
+// SelectionNode ...
 type SelectionNode struct {
-	Loc          Location
-	Kind         string
+	Node
 	name         NameNode
 	alias        NameNode
 	Arguments    []ArgumentNode
 	SelectionSet SelectionSetNode
 }
 
+func NewSelection(n *SelectionNode) *SelectionNode {
+	if n == nil {
+		n = &SelectionNode{}
+	}
+
+	n.Kind = kinds.Selection
+
+	return n
+}
+
+// ArgumentNode ...
 type ArgumentNode struct {
-	Loc   Location
-	Kind  string
+	Node
 	Name  NameNode
 	Value ValueNode
 }
 
+// NewArgument ...
 func NewArgument(n *ArgumentNode) *ArgumentNode {
 	if n == nil {
 		n = &ArgumentNode{}
@@ -55,21 +77,14 @@ func NewArgument(n *ArgumentNode) *ArgumentNode {
 	return n
 }
 
-type VariableDefinitionNode struct {
-	Loc          Location
-	Kind         string
-	Type         TypeNode
-	Variable     VariableNode
-	DefaultValue ValueNode
-}
-
+// VariableNode ...
 type VariableNode struct {
-	Loc  Location
-	Kind string
+	Node
 	Name NameNode
 }
 
-func NewVariable(d *VariableNode) *VariableNode {
+// NewVariable ...
+func NewVariable(n *VariableNode) *VariableNode {
 	if n == nil {
 		n = &VariableNode{}
 	}

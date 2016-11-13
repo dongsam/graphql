@@ -1,1 +1,1 @@
-# graphql-go
+# Typeless GraphQL
