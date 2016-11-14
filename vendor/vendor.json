@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "fCFbxJ98SB2npiz4bTtfPRctP5U=",
+			"path": "github.com/onsi/ginkgo/ginkgo",
+			"revision": "00054c0bb96fc880d4e0be1b90937fad438c5290",
+			"revisionTime": "2016-11-10T18:03:13Z"
+		},
+		{
 			"checksumSHA1": "3g6SrQ0YmvEvx1MTqwKPqZd7B38=",
 			"path": "github.com/onsi/gomega",
 			"revision": "ff4bc6b6f9f5affa66635cd04d31d2a7ee21ffd6",
