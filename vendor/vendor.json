@@ -1,6 +1,13 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "3g6SrQ0YmvEvx1MTqwKPqZd7B38=",
+			"path": "github.com/onsi/gomega",
+			"revision": "ff4bc6b6f9f5affa66635cd04d31d2a7ee21ffd6",
+			"revisionTime": "2016-10-31T15:43:39Z"
+		}
+	],
 	"rootPath": "github.com/riverleo/graphql"
 }
